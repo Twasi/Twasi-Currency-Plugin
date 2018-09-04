@@ -48,8 +48,8 @@ To work with these banks and bank accounts you need to get the CurrencyService u
 
 This class is your interface to query or change account values for every account of every bank.
 Every function of this class is very self-explanatory:
-![functions of currencyService](https://i.imgur.com/4P0ojv9.png)
 
+![functions of currencyService](https://i.imgur.com/4P0ojv9.png)
 
 
 Now you can in-/decrease or set account values easily. Please keep in mind that account values are not allowed to be below zero.
