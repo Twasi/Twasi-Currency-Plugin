@@ -1,0 +1,10 @@
+twasi.currency.accountquery.self=%s, du hast aktuell %d %s SeemsGood
+twasi.currency.accountquery.public=%s hat aktuell %d %s SeemsGood
+twasi.currency.requestfailed=Die Anfrage konnte leider nicht bearbeitet werden BibleThump
+
+twasi.currency.add.helptext=Bitte schreibe "%s add [User] [Anzahl (positiv)]"
+twasi.currency.add.success=%s hat jetzt %d %s (+%d) PogChamp
+
+twasi.currency.remove.helptext=Bitte schreibe "%s remove [User] [Anzahl (positiv)]"
+twasi.currency.remove.success=%s hat jetzt nur noch %d %s (-%d) :/
+twasi.currency.remove.belowzero=%s, du kannst maximal %d %s entfernen, da %s sonst weniger als keine %s hätte DansGame

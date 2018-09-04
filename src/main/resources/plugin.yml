@@ -1,0 +1,14 @@
+name: Twasi Currency
+main: de.merlinw.twasi.currency.Plugin
+author: Twasi Team
+description: The Twasi currency plugin
+helpText: This is a very helpful helptext
+version: 1.0
+
+messageHandler: true
+
+commands:
+
+permissions:
+  - twasi.currency.mod.operate
+  - twasi.currency.streamer.operate
