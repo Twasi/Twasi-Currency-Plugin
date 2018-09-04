@@ -1,14 +1,14 @@
-name: Twasi Currency
+name: Currency
 main: de.merlinw.twasi.currency.Plugin
 author: Twasi Team
 description: The Twasi currency plugin
-helpText: This is a very helpful helptext
+helpText: This plugin allows you to add a custom currency to your chatters.
 version: 1.0
 
 messageHandler: true
 
 commands:
+  - currency
 
 permissions:
-  - twasi.currency.mod.operate
   - twasi.currency.streamer.operate

@@ -46,9 +46,7 @@ public class UserPlugin extends TwasiUserPlugin {
             switch (cmd[1]) {
                 case "add":
                     if(cmd.length < 4) throw new ArrayIndexOutOfBoundsException();
-                    if (!streamer.hasPermission(msg.getSender(), "twasi.currency.streamer.operate")
-                            && !(streamer.hasPermission(msg.getSender(), "twasi.currency.mod.operate")
-                            && streamerBank.allowModOperations())) return;
+                    if (!streamer.hasPermission(msg.getSender(), "twasi.currency.streamer.operate")) return;
                     try {
                         String api = Plugin.getApiContent("https://api.twitch.tv/kraken/users/" + cmd[2] + "?client_id=" + clientId);
                         JsonObject object = new JsonParser().parse(api).getAsJsonObject();
@@ -73,9 +71,7 @@ public class UserPlugin extends TwasiUserPlugin {
                     }
                 case "remove":
                     if(cmd.length < 4) throw new ArrayIndexOutOfBoundsException();
-                    if (!streamer.hasPermission(msg.getSender(), "twasi.currency.streamer.operate")
-                            && !(streamer.hasPermission(msg.getSender(), "twasi.currency.mod.operate")
-                            && streamerBank.allowModOperations())) return;
+                    if (!streamer.hasPermission(msg.getSender(), "twasi.currency.streamer.operate")) return;
                     BankAccountEntity entity = null;
                     String target = null;
                     try {
