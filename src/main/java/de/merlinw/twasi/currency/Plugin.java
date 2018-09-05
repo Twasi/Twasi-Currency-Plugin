@@ -14,6 +14,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class Plugin extends TwasiPlugin {
     @Override
@@ -28,6 +29,12 @@ public class Plugin extends TwasiPlugin {
 
     public static String getApiContent(String url) throws IOException {
         return getApiContent(new HttpGet(url));
+    }
+
+    public static String getApiContent(String url, Map<String, String> headers) throws IOException {
+        HttpGet client = new HttpGet(url);
+        for(String header : headers.keySet()) client.addHeader(header, headers.get(header));
+        return getApiContent(client);
     }
 
     public static String getApiContent(HttpRequestBase request) throws IOException {
