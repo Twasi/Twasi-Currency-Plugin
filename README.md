@@ -51,7 +51,6 @@ Every function of this class is very self-explanatory:
 
 ![functions of currencyService](https://i.imgur.com/4P0ojv9.png)
 
-
 Now you can in-/decrease or set account values easily. Please keep in mind that account values are not allowed to be below zero.
 To prevent this the "setBankAccountValue()" void and the "removeFromBankAccount()" void throw an Exception (NegativeBankAccountValueException) when you try to set any account value to a value below zero.
 
@@ -59,3 +58,7 @@ Another exception (TransactionIsNotPositiveException) is thrown when you try to 
 This intends to prevent confusion about account transactions because this way you can't add or remove a negative value to/from a bank account.
 
 Please catch both of these exceptions to prevent any issues.
+
+**Testing**
+
+Every plugin should be tested on a local Twasi-Core instance before we decide to add it to the official plugin store. If your plugin uses the Twasi-Currency API don't forget to put the plugin's jar file that is used as library too into your local core's plugin folder.
