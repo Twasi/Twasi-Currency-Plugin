@@ -7,13 +7,18 @@ import de.merlinw.twasi.currency.database.bank.BankEntity;
 import de.merlinw.twasi.currency.database.bankaccount.BankAccountEntity;
 import de.merlinw.twasi.currency.exceptions.NegativeBankAccountValueException;
 import de.merlinw.twasi.currency.exceptions.TransactionIsNotPositiveException;
+import de.merlinw.twasi.currency.variables.*;
 import net.twasi.core.database.models.User;
 import net.twasi.core.models.Message.TwasiMessage;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
+import net.twasi.core.plugin.api.TwasiVariable;
 import net.twasi.core.plugin.api.events.TwasiInstallEvent;
 import net.twasi.core.plugin.api.events.TwasiMessageEvent;
 import net.twasi.core.services.ServiceRegistry;
 import net.twasi.core.services.providers.config.ConfigService;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class UserPlugin extends TwasiUserPlugin {
     private CurrencyService currencyService = ServiceRegistry.get(CurrencyService.class);
@@ -21,13 +26,21 @@ public class UserPlugin extends TwasiUserPlugin {
 
     @Override
     public void onInstall(TwasiInstallEvent e) {
+
+        // Grant permissions
         e.getModeratorsGroup().addKey("twasi.currency.mod.*");
         e.getAdminGroup().addKey("twasi.currency.streamer.*");
         e.getDefaultGroup().addKey("twasi.currency.default.*");
+
+        // Create first bank account that force-creates the streamer's bank
+        User user = getTwasiInterface().getStreamer().getUser();
+        currencyService.getBankAccount(user, user.getTwitchAccount().getTwitchId());
     }
 
     @Override
     public void onUninstall(TwasiInstallEvent e) {
+
+        // Remove permissions
         e.getModeratorsGroup().removeKey("twasi.currency.mod.*");
         e.getAdminGroup().removeKey("twasi.currency.streamer.*");
         e.getDefaultGroup().removeKey("twasi.currency.default.*");
@@ -45,7 +58,7 @@ public class UserPlugin extends TwasiUserPlugin {
         try {
             switch (cmd[1]) {
                 case "add":
-                    if(cmd.length < 4) throw new ArrayIndexOutOfBoundsException();
+                    if (cmd.length < 4) throw new ArrayIndexOutOfBoundsException();
                     if (!streamer.hasPermission(msg.getSender(), "twasi.currency.streamer.operate")) return;
                     try {
                         String api = Plugin.getApiContent("https://api.twitch.tv/kraken/users/" + cmd[2] + "?client_id=" + clientId);
@@ -70,7 +83,7 @@ public class UserPlugin extends TwasiUserPlugin {
                         return;
                     }
                 case "remove":
-                    if(cmd.length < 4) throw new ArrayIndexOutOfBoundsException();
+                    if (cmd.length < 4) throw new ArrayIndexOutOfBoundsException();
                     if (!streamer.hasPermission(msg.getSender(), "twasi.currency.streamer.operate")) return;
                     BankAccountEntity entity = null;
                     String target = null;
@@ -92,7 +105,7 @@ public class UserPlugin extends TwasiUserPlugin {
                     } catch (ArrayIndexOutOfBoundsException | NumberFormatException | TransactionIsNotPositiveException e1) {
                         msg.reply(getTranslation("twasi.currency.remove.helptext", streamerBank.getCurrencyCommand()));
                         return;
-                    } catch (NegativeBankAccountValueException e1){
+                    } catch (NegativeBankAccountValueException e1) {
                         String user = msg.getSender().getDisplayName();
                         int val = entity.getAccountValue();
                         msg.reply(getTranslation(
@@ -142,4 +155,14 @@ public class UserPlugin extends TwasiUserPlugin {
         return getTranslation("twasi.currency.accountquery.self", name, value, (value == 1 ? entity.getCurrencyNameSingle() : entity.getCurrencyName()));
     }
 
+    @Override
+    public List<TwasiVariable> getVariables() {
+        return Arrays.asList(
+                new BankAccountValueVariable(this),
+                new CurrencyNameSingleVariable(this),
+                new CurrencyNameVariable(this),
+                new TopBankAccountNameVariable(this),
+                new TopBankAccountValueVariable(this)
+        );
+    }
 }
