@@ -1,4 +1,4 @@
-package de.merlinw.twasi.currency.exceptions;
+package net.twasi.currency.exceptions;
 
 public class TransactionIsNotPositiveException extends Exception {
 

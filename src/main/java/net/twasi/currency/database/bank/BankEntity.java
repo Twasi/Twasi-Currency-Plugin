@@ -1,4 +1,4 @@
-package de.merlinw.twasi.currency.database.bank;
+package net.twasi.currency.database.bank;
 
 import net.twasi.core.database.models.BaseEntity;
 import net.twasi.core.database.models.User;

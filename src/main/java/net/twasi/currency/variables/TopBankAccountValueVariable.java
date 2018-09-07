@@ -1,8 +1,8 @@
-package de.merlinw.twasi.currency.variables;
+package net.twasi.currency.variables;
 
-import de.merlinw.twasi.currency.database.CurrencyService;
-import de.merlinw.twasi.currency.database.bank.BankEntity;
-import de.merlinw.twasi.currency.database.bankaccount.BankAccountRepository;
+import net.twasi.currency.database.CurrencyService;
+import net.twasi.currency.database.bank.BankEntity;
+import net.twasi.currency.database.bankaccount.BankAccountRepository;
 import net.twasi.core.interfaces.api.TwasiInterface;
 import net.twasi.core.models.Message.TwasiMessage;
 import net.twasi.core.plugin.api.TwasiUserPlugin;

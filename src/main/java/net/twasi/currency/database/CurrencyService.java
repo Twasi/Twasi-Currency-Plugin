@@ -1,11 +1,11 @@
-package de.merlinw.twasi.currency.database;
+package net.twasi.currency.database;
 
-import de.merlinw.twasi.currency.database.bank.BankEntity;
-import de.merlinw.twasi.currency.database.bank.BankRepository;
-import de.merlinw.twasi.currency.database.bankaccount.BankAccountEntity;
-import de.merlinw.twasi.currency.database.bankaccount.BankAccountRepository;
-import de.merlinw.twasi.currency.exceptions.NegativeBankAccountValueException;
-import de.merlinw.twasi.currency.exceptions.TransactionIsNotPositiveException;
+import net.twasi.currency.database.bank.BankEntity;
+import net.twasi.currency.database.bank.BankRepository;
+import net.twasi.currency.database.bankaccount.BankAccountEntity;
+import net.twasi.currency.database.bankaccount.BankAccountRepository;
+import net.twasi.currency.exceptions.NegativeBankAccountValueException;
+import net.twasi.currency.exceptions.TransactionIsNotPositiveException;
 import net.twasi.core.database.models.User;
 import net.twasi.core.services.IService;
 import net.twasi.core.services.ServiceRegistry;

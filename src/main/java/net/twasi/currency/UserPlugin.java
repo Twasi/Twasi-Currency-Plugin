@@ -1,12 +1,12 @@
-package de.merlinw.twasi.currency;
+package net.twasi.currency;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import de.merlinw.twasi.currency.database.CurrencyService;
-import de.merlinw.twasi.currency.database.bank.BankEntity;
-import de.merlinw.twasi.currency.database.bankaccount.BankAccountEntity;
-import de.merlinw.twasi.currency.exceptions.NegativeBankAccountValueException;
-import de.merlinw.twasi.currency.exceptions.TransactionIsNotPositiveException;
+import net.twasi.currency.database.CurrencyService;
+import net.twasi.currency.database.bank.BankEntity;
+import net.twasi.currency.database.bankaccount.BankAccountEntity;
+import net.twasi.currency.exceptions.NegativeBankAccountValueException;
+import net.twasi.currency.exceptions.TransactionIsNotPositiveException;
 import de.merlinw.twasi.currency.variables.*;
 import net.twasi.core.database.models.User;
 import net.twasi.core.models.Message.TwasiMessage;
@@ -16,6 +16,7 @@ import net.twasi.core.plugin.api.events.TwasiInstallEvent;
 import net.twasi.core.plugin.api.events.TwasiMessageEvent;
 import net.twasi.core.services.ServiceRegistry;
 import net.twasi.core.services.providers.config.ConfigService;
+import net.twasi.currency.variables.*;
 
 import java.util.Arrays;
 import java.util.List;

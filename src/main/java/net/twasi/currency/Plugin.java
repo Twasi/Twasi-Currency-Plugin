@@ -1,6 +1,6 @@
-package de.merlinw.twasi.currency;
+package net.twasi.currency;
 
-import de.merlinw.twasi.currency.database.CurrencyService;
+import net.twasi.currency.database.CurrencyService;
 import net.twasi.core.plugin.TwasiPlugin;
 import net.twasi.core.plugin.api.TwasiUserPlugin;
 import net.twasi.core.services.ServiceRegistry;

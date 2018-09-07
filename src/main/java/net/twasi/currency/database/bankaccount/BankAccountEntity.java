@@ -1,6 +1,6 @@
-package de.merlinw.twasi.currency.database.bankaccount;
+package net.twasi.currency.database.bankaccount;
 
-import de.merlinw.twasi.currency.database.bank.BankEntity;
+import net.twasi.currency.database.bank.BankEntity;
 import net.twasi.core.database.models.BaseEntity;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Reference;

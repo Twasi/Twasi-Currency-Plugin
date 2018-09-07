@@ -1,5 +1,5 @@
 name: Currency
-main: de.merlinw.twasi.currency.Plugin
+main: net.twasi.currency.Plugin
 author: Twasi Team
 description: The Twasi currency plugin
 helpText: This plugin allows you to add a custom currency to your chatters.
@@ -8,7 +8,7 @@ version: 1.0
 messageHandler: true
 
 commands:
-  - currency
+- currency
 
 permissions:
-  - twasi.currency.streamer.operate
+- twasi.currency.streamer.operate
