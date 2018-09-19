@@ -5,7 +5,7 @@ This way it is not necessary to build a whole currency system into every single 
 
 To get started with Twasi-Currency you first need to add the currency plugin to your plugin's classpath as a library.
 Just add the Twasi-Artifactory to your pom.xml file and then add the latest version of my plugin as dependency:
-```
+```xml
     <repositories>
          <repository>
              <snapshots>
@@ -44,7 +44,9 @@ Every chatter has it's own "bank account" that stores the individual account val
 
 To work with these banks and bank accounts you need to get the CurrencyService using the core's ServiceRegistry:
 
-```CurrencyService currencyService = ServiceRegistry.get(CurrencyService.class);```
+```java
+CurrencyService currencyService = ServiceRegistry.get(CurrencyService.class);
+```
 
 This class is your interface to query or change account values for every account of every bank.
 Every function of this class is very self-explanatory:
